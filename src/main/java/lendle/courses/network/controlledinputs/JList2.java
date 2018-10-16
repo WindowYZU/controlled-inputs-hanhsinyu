@@ -18,7 +18,7 @@ public class JList2 extends javax.swing.JFrame {
      */
     public JList2() {
         initComponents();
-        DefaultListModel model=new DefaultListModel();
+        DefaultListModel model = new DefaultListModel();
         jList1.setModel(model);
     }
 
@@ -73,15 +73,23 @@ public class JList2 extends javax.swing.JFrame {
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
         //取得 DefaultListModel 並且新增資料
-        
+        String value = jTextField1.getText();
+        if (value.length() > 0) {
+            DefaultListModel model = (DefaultListModel) jList1.getModel();
+            model.addElement(value);
+            jList1.updateUI();
+            jTextField1.setText("");
+        }
         //////////////////////////////////
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
-        if(jList1.getSelectedIndex()!=-1){
+        if (jList1.getSelectedIndex() != -1) {
             //取得 DefaultListModel 並且刪除資料
-        
+            DefaultListModel model = (DefaultListModel) jList1.getModel();
+            model.remove(jList1.getSelectedIndex());
+            jList1.updateUI();
             //////////////////////////////////
         }
     }//GEN-LAST:event_jButton2ActionPerformed
